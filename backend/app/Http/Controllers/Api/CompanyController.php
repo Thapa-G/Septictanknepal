@@ -15,9 +15,9 @@ class CompanyController extends Controller
             ['id' => 1],
             [
                 'company_name' => 'Septic-Tank Nepal',
-                'whatsapp_number' => '9800000000',
-                'emergency_phone' => '+977 976-5355755',
-                'email' => 'info@drainexpert.com',
+                'whatsapp_number' => '9841169351',
+                'emergency_phone' => '+977 9841169351',
+                'email' => 'nepalseptictank@gmail.com',
                 'address' => '',
                 'latitude' => 27.7172000,
                 'longitude' => 85.3240000,

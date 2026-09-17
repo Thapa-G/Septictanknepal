@@ -59,7 +59,7 @@ export default function Footer({
         <div className="col-span-1 md:col-span-1">
           <Link href="/" className="inline-block mb-4 min-h-[64px]">
             <img
-              src={logoUrl || contextCompany?.logo_url || '/images/logo.jpg'}
+              src={'/images/logo.jpg'}
               alt={activeCompanyName}
               className="h-16 md:h-20 w-auto max-w-[240px] object-contain rounded-xl bg-white p-1 shadow-md"
             />
@@ -166,6 +166,15 @@ export default function Footer({
                 className="text-white hover:text-green-300 transition-colors font-medium"
               >
                 24/7 WhatsApp: {activeWhatsapp}
+              </a>
+            </li>
+            <li className="flex items-center gap-2 min-h-[22px]">
+              <span className="material-symbols-outlined text-[18px] text-white">mail</span>
+              <a
+                href="mailto:nepalseptictank@gmail.com"
+                className="hover:text-white hover:underline transition-colors break-all"
+              >
+                nepalseptictank@gmail.com
               </a>
             </li>
           </ul>

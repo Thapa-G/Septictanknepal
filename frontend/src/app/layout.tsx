@@ -14,6 +14,9 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://omganeshayasarsafai
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  verification: {
+    google: 'lIt7vq6qCAZ15Ns1Xft0Xy4E41PxxiMGWFt0pv3OdUE',
+  },
   icons: {
     icon: '/favicon.ico',
   },
@@ -38,6 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
+        <meta name="google-site-verification" content="lIt7vq6qCAZ15Ns1Xft0Xy4E41PxxiMGWFt0pv3OdUE" />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"

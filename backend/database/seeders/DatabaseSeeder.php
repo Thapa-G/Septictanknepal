@@ -31,9 +31,9 @@ class DatabaseSeeder extends Seeder
             [
                 'company_name' => 'Septic-Tank Nepal',
                 'logo_url' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuCHSvU_e-OY9_Qd45lxkymEknXP2jzdiMzAubiDoTslHDW_2E0DePnJ09YidT_NNYZUoHuKe9WQE-2L55UKSCv3EkEFU7Xo2_6RlLhSdUWwCBAs_1t5CC-pOxxGXqDxo9W6J9y6TkV1hhOxzkkZEywcklF4PunuLlemx4LGZ8xoXFoYQNJv2aIJus15_bhVbq3_AQee7arxy3RIxmzA3wkqK6HhUqeplN_BjguwfATZoED_l_N_Zd7w',
-                'whatsapp_number' => '9706970481',
-                'emergency_phone' => '+977 9706970481',
-                'email' => 'info@omganeshayasarsafai.com.np',
+                'whatsapp_number' => '9841169351',
+                'emergency_phone' => '+977 9841169351',
+                'email' => 'nepalseptictank@gmail.com',
                 'address' => 'Kathmandu, Bagmati Province, Nepal',
                 'latitude' => 27.7172000,
                 'longitude' => 85.3240000,

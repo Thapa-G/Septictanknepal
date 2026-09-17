@@ -147,6 +147,21 @@ export default function ContactPage() {
                   </p>
                 </div>
               </div>
+
+              <div className="border-t border-[#cbd5e1] pt-4 flex items-start gap-3">
+                <span className="material-symbols-outlined text-[#1d4ed8] text-[24px] mt-0.5">
+                  mail
+                </span>
+                <div className="flex-1">
+                  <h4 className="text-[15px] font-bold text-[#0f172a]">Email Us</h4>
+                  <a
+                    href="mailto:nepalseptictank@gmail.com"
+                    className="text-[14px] text-[#1d4ed8] hover:underline font-semibold mt-0.5 block break-all"
+                  >
+                    nepalseptictank@gmail.com
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 

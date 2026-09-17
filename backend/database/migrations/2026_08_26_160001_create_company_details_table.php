@@ -12,9 +12,9 @@ return new class extends Migration
             $table->id();
             $table->string('company_name')->default('Septic-Tank Nepal');
             $table->text('logo_url')->nullable();
-            $table->string('whatsapp_number')->default('9800000000');
-            $table->string('emergency_phone')->default('+977 976-5355755');
-            $table->string('email')->nullable()->default('info@drainexpert.com');
+            $table->string('whatsapp_number')->default('9841169351');
+            $table->string('emergency_phone')->default('+977 9841169351');
+            $table->string('email')->nullable()->default('nepalseptictank@gmail.com');
             $table->text('address')->nullable();
             $table->decimal('latitude', 10, 7)->nullable()->default(27.7172000);
             $table->decimal('longitude', 10, 7)->nullable()->default(85.3240000);
