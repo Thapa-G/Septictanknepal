@@ -142,7 +142,7 @@ export default function AdminCompanyDetailsPage() {
                   className="w-full bg-[#f8fafc] border border-[#cbd5e1] rounded-xl p-3 text-[14px] form-input font-mono"
                 />
                 <p className="text-[12px] text-[#64748b] mt-1">
-                  Used for all WhatsApp chat links (e.g. 9800000000 or 9779765355755).
+                  Used for all WhatsApp chat links (e.g. 9841169351 or 9779841169351).
                 </p>
               </div>
             </div>
