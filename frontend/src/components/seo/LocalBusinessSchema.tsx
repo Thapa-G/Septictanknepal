@@ -8,8 +8,8 @@ interface LocalBusinessSchemaProps {
 export default function LocalBusinessSchema({ company }: LocalBusinessSchemaProps) {
   const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://omganeshayasarsafai.com.np').replace(/\/+$/, '');
   const companyName = company?.company_name || 'Septic-Tank Nepal';
-  const phone = company?.emergency_phone || '+977 9841169351';
-  const whatsapp = company?.whatsapp_number || '9841169351';
+  const phone = company?.emergency_phone || '+977 9706970481';
+  const whatsapp = company?.whatsapp_number || '9706970481';
 
   const address = company?.address || 'Kathmandu, Bagmati Province, Nepal';
   const lat = company?.latitude || 27.7172;
@@ -26,7 +26,6 @@ export default function LocalBusinessSchema({ company }: LocalBusinessSchemaProp
     logo: logo,
     image: logo,
     telephone: phone,
-    email: 'nepalseptictank@gmail.com',
     priceRange: '$$',
     currenciesAccepted: 'NPR',
     paymentAccepted: ['Cash', 'eSewa', 'Khalti', 'Bank Transfer'],
@@ -83,7 +82,7 @@ export default function LocalBusinessSchema({ company }: LocalBusinessSchemaProp
       },
     ],
     sameAs: [
-      whatsapp ? `https://wa.me/${whatsapp.replace(/[^0-9]/g, '')}` : `https://wa.me/9841169351`,
+      whatsapp ? `https://wa.me/${whatsapp.replace(/[^0-9]/g, '')}` : `https://wa.me/9706970481`,
     ].filter(Boolean),
     contactPoint: [
       {

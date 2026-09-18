@@ -15,7 +15,7 @@ export default function ServiceDetailSchema({
   ).replace(/\/+$/, '');
 
   let companyName = 'Septic-Tank Nepal';
-  let phone = '+977 9841169351';
+  let phone = '+977 9706970481';
 
   if (company) {
     if (company.company_name) {
