@@ -14,6 +14,9 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://omganeshayasarsafai
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  verification: {
+    google: 'lIt7vq6qCAZ15Ns1Xft0Xy4E41PxxiMGWFt0pv3OdUE',
+  },
   icons: {
     icon: '/favicon.ico',
   },
