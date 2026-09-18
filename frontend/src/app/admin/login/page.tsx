@@ -7,8 +7,8 @@ import { authService } from '@/services/authService';
 
 export default function AdminLoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState('admin@drainexpert.com');
-  const [password, setPassword] = useState('password123');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -69,7 +69,8 @@ export default function AdminLoginPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 className="w-full bg-[#f8fafc] border border-[#cbd5e1] rounded-xl p-3 text-[14px] text-[#0f172a] form-input"
-                placeholder="admin@drainexpert.com"
+                placeholder="Enter email address"
+                autoComplete="email"
               />
             </div>
 
@@ -84,7 +85,8 @@ export default function AdminLoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 className="w-full bg-[#f8fafc] border border-[#cbd5e1] rounded-xl p-3 text-[14px] text-[#0f172a] form-input"
-                placeholder="••••••••"
+                placeholder="Enter password"
+                autoComplete="current-password"
               />
             </div>
 
@@ -103,12 +105,6 @@ export default function AdminLoginPage() {
               )}
             </button>
           </form>
-
-          <div className="mt-6 pt-4 border-t border-[#cbd5e1]/60 text-center">
-            <p className="text-[12px] text-[#64748b]">
-              Default Seeded Credentials: <span className="font-mono text-[#0f172a]">admin@drainexpert.com</span> / <span className="font-mono text-[#0f172a]">password123</span>
-            </p>
-          </div>
         </div>
 
         <div className="text-center mt-6">

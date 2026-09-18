@@ -18,10 +18,10 @@ class DatabaseSeeder extends Seeder
     {
         // 1. Admin User
         User::updateOrCreate(
-            ['email' => 'admin@drainexpert.com'],
+            ['email' => 'septictanknepaladmin@admin.com'],
             [
-                'name' => 'Drain Expert Admin',
-                'password' => Hash::make('password123'),
+                'name' => 'Septic Tank Nepal Admin',
+                'password' => Hash::make('imaseptictankneplaadmin2'),
             ]
         );
 

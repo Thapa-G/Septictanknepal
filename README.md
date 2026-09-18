@@ -155,8 +155,8 @@ ganeshseptictank/
 
 To access the Admin Management Portal:
 - **URL**: [http://localhost:3000/admin/login](http://localhost:3000/admin/login)
-- **Email**: `admin@drainexpert.com`
-- **Password**: `password123`
+- **Email**: `septictanknepaladmin@admin.com`
+- **Password**: `imaseptictankneplaadmin2`
 
 ---
 
