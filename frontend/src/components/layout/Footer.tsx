@@ -59,7 +59,7 @@ export default function Footer({
         <div className="col-span-1 md:col-span-1">
           <Link href="/" className="inline-block mb-4 min-h-[64px]">
             <img
-              src={logoUrl || '/images/logo.jpg'}
+              src={'/images/logo.jpg'}
               alt={activeCompanyName}
               className="h-16 md:h-20 w-auto max-w-[240px] object-contain rounded-xl bg-white p-1 shadow-md"
             />

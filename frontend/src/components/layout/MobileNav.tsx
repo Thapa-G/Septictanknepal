@@ -48,14 +48,13 @@ export default function MobileNav({
 
       {/* Drawer */}
       <div
-        className={`fixed top-0 left-0 bottom-0 w-[280px] bg-white z-50 shadow-2xl flex flex-col justify-between transition-transform duration-300 ease-in-out md:hidden ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}
+        className={`fixed top-0 left-0 bottom-0 w-[280px] bg-white z-50 shadow-2xl flex flex-col justify-between transition-transform duration-300 ease-in-out md:hidden ${isOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}
       >
         <div className="p-4 bg-[#f1f5f9] border-b border-[#cbd5e1] flex justify-between items-center">
           <div className="flex flex-col">
             <img
-              src={logoUrl || '/images/logo.jpg'}
+              src={'/images/logo.jpg'}
               alt={activeCompanyName}
               className="h-12 w-auto max-w-[170px] object-contain rounded-lg bg-white p-0.5 shadow-xs mb-1.5"
             />
@@ -74,11 +73,10 @@ export default function MobileNav({
                 key={link.name}
                 href={link.href}
                 onClick={onClose}
-                className={`flex items-center gap-3 p-3 rounded-lg text-[15px] font-medium transition-colors ${
-                  isActive
+                className={`flex items-center gap-3 p-3 rounded-lg text-[15px] font-medium transition-colors ${isActive
                     ? 'bg-[#1d4ed8] text-white font-bold shadow-sm'
                     : 'text-[#475569] hover:bg-[#e2e8f0]'
-                }`}
+                  }`}
               >
                 <span className="material-symbols-outlined text-[20px]">{link.icon}</span>
                 <span>{link.name}</span>

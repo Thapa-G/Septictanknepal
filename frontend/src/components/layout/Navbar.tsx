@@ -44,7 +44,7 @@ export default function Navbar({
           className="hover:opacity-90 transition-opacity flex items-center gap-2.5 py-1 min-h-[52px]"
         >
           <img
-            src={logoUrl || '/images/logo.jpg'}
+            src={'/images/logo.jpg'}
             alt={activeCompanyName}
             className="h-13 w-auto max-w-[220px] object-contain rounded-lg bg-white p-0.5 shadow-sm"
           />
@@ -61,8 +61,8 @@ export default function Navbar({
                 key={link.name}
                 href={link.href}
                 className={`transition-all duration-200 px-3.5 py-1.5 rounded-lg ${isActive
-                    ? 'bg-white/20 text-white font-bold shadow-sm'
-                    : 'text-blue-50 hover:bg-white/10 hover:text-white'
+                  ? 'bg-white/20 text-white font-bold shadow-sm'
+                  : 'text-blue-50 hover:bg-white/10 hover:text-white'
                   }`}
               >
                 {link.name}

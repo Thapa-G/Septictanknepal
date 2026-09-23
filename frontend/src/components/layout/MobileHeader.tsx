@@ -32,7 +32,7 @@ export default function MobileHeader({
 
       <Link href="/" className="flex items-center gap-2 min-h-[48px]">
         <img
-          src={logoUrl || contextCompany?.logo_url || '/images/logo.jpg'}
+          src={'/images/logo.jpg'}
           alt={activeCompanyName}
           className="h-12 w-auto max-w-[170px] object-contain rounded-lg bg-white p-0.5 shadow-sm"
         />

@@ -14,7 +14,7 @@ export default function LocalBusinessSchema({ company }: LocalBusinessSchemaProp
   const address = company?.address || 'Kathmandu, Bagmati Province, Nepal';
   const lat = company?.latitude || 27.7172;
   const lng = company?.longitude || 85.324;
-  const logo = company?.logo_url || `${siteUrl}/images/logo.jpg`;
+  const logo = `${siteUrl}/images/logo.jpg`;
 
   const schemaData = {
     '@context': 'https://schema.org',
