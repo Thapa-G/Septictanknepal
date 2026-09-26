@@ -106,12 +106,18 @@ export default function AdminServicesListPage() {
                   filteredServices.map((service) => (
                     <tr key={service.id} className="hover:bg-[#f8fafc] transition-colors">
                       <td className="px-6 py-4">
-                        <div className="w-14 h-10 rounded-lg bg-[#e2e8f0] overflow-hidden border border-[#cbd5e1]">
-                          <img
-                            src={service.cover_image || 'https://lh3.googleusercontent.com/aida-public/AB6AXuBI7cIdzb6CdTFXDBA04BFdeZZrpEzXyFAHxlQ66oFQUkEPT4dsseY5yQ7K9JsYv5X7rEXW52M-3cAOaovmqZdl7ZBO6oo51siovdphhhfQ2-NKzpiDJdxIoMX36lswBrpSsGL2Ey_HDHxeSqwthqQcg42sRu2KZyb9YQrVgHOkFPmOiS9eSG3HkpTcFbl4ur7qPZu1CFByM-oLDC6cdXUi9yhmZFHfseVtFezqSX2sFke4kC3Oy5Si'}
-                            alt={service.title}
-                            className="w-full h-full object-cover"
-                          />
+                        <div className="w-14 h-10 rounded-lg bg-[#e2e8f0] overflow-hidden border border-[#cbd5e1] flex items-center justify-center">
+                          {service.cover_image ? (
+                            <img
+                              src={service.cover_image}
+                              alt={service.title}
+                              className="w-full h-full object-cover"
+                            />
+                          ) : (
+                            <span className="material-symbols-outlined text-sm text-slate-400">
+                              {service.icon || 'image'}
+                            </span>
+                          )}
                         </div>
                       </td>
                       <td className="px-6 py-4">

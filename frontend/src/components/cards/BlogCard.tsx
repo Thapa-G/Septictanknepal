@@ -16,12 +16,16 @@ export default function BlogCard({ blog, variant = 'standard' }: BlogCardProps) 
         href={`/blog/${blog.slug}`}
         className="bg-white border border-[#cbd5e1] rounded-2xl overflow-hidden hover:bg-[#f1f5f9] transition-all duration-300 group cursor-pointer flex flex-col md:flex-row mb-8 shadow-sm hover:shadow-md block"
       >
-        <div className="h-64 md:h-auto md:w-1/2 relative bg-[#e2e8f0] overflow-hidden">
-          <img
-            src={blog.cover_image || 'https://lh3.googleusercontent.com/aida-public/AB6AXuB7uCIPYHm8EJZvPor5srfBzNextPUXCaos7r2pCTm3SiAdwvzp1ubpEjJyZ2XK6brPp9fvNP2A9-T1lVbucFsU7SYSPtm76PCDrspXJz-gm-dw6qpQ5h9DSlRVPXF3B8SxvUdUuwc4X4tp6nopGhp1Jarw5T6vsrBgA__6JOUQ_FfER5fN_MScHsxotURzXukGl0TRlWhmnDYtm4S6LmTIzBPW21jjlESHN80Oy0DGU1rwVcwo8Lhx'}
-            alt={altText}
-            className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
-          />
+        <div className="h-64 md:h-auto md:w-1/2 relative bg-[#e2e8f0] overflow-hidden flex items-center justify-center">
+          {blog.cover_image ? (
+            <img
+              src={blog.cover_image}
+              alt={altText}
+              className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+            />
+          ) : (
+            <span className="material-symbols-outlined text-5xl text-slate-400">article</span>
+          )}
         </div>
         <div className="p-6 md:p-8 flex-grow flex flex-col justify-between md:w-1/2">
           <div>
@@ -63,12 +67,16 @@ export default function BlogCard({ blog, variant = 'standard' }: BlogCardProps) 
         href={`/blog/${blog.slug}`}
         className="bg-white border border-[#cbd5e1] rounded-2xl overflow-hidden hover:bg-[#f1f5f9] transition-all duration-300 group cursor-pointer flex flex-col shadow-sm hover:shadow-md block h-full"
       >
-        <div className="h-48 bg-[#e2e8f0] relative overflow-hidden">
-          <img
-            src={blog.cover_image || 'https://lh3.googleusercontent.com/aida-public/AB6AXuBYuVZT2DynhdwpfW7IzexYgrslMyc6nPUghtckJiSwyMlfS8FIi0Z2G_TgSbFEv4kkk_2MldhzyHDQ01IoRY90LDGWL7gbrk2WT2D-VOtwG4W9vFrFKMiHTYIxx_yh1Gl9APLhsChYXfjP_I9OksTuYVc6ohff8tP1ckeyjqYEN87i4LSAa589cibKZBgRN-q7kVHQ1HFzPodpgu9PAvwExEq3vOtzfLI__7UKJra161o-kcWQuy3w'}
-            alt={altText}
-            className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
-          />
+        <div className="h-48 bg-[#e2e8f0] relative overflow-hidden flex items-center justify-center">
+          {blog.cover_image ? (
+            <img
+              src={blog.cover_image}
+              alt={altText}
+              className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+            />
+          ) : (
+            <span className="material-symbols-outlined text-4xl text-slate-400">article</span>
+          )}
         </div>
         <div className="p-6 flex-grow flex flex-col justify-between">
           <div>

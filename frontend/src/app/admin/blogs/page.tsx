@@ -109,12 +109,18 @@ export default function AdminBlogsListPage() {
                   blogsList.map((blog) => (
                     <tr key={blog.id} className="hover:bg-[#f8fafc] transition-colors">
                       <td className="px-6 py-4">
-                        <div className="w-14 h-10 rounded-lg bg-[#e2e8f0] overflow-hidden border border-[#cbd5e1]">
-                          <img
-                            src={blog.cover_image || 'https://lh3.googleusercontent.com/aida-public/AB6AXuB7uCIPYHm8EJZvPor5srfBzNextPUXCaos7r2pCTm3SiAdwvzp1ubpEjJyZ2XK6brPp9fvNP2A9-T1lVbucFsU7SYSPtm76PCDrspXJz-gm-dw6qpQ5h9DSlRVPXF3B8SxvUdUuwc4X4tp6nopGhp1Jarw5T6vsrBgA__6JOUQ_FfER5fN_MScHsxotURzXukGl0TRlWhmnDYtm4S6LmTIzBPW21jjlESHN80Oy0DGU1rwVcwo8Lhx'}
-                            alt={blog.title}
-                            className="w-full h-full object-cover"
-                          />
+                        <div className="w-14 h-10 rounded-lg bg-[#e2e8f0] overflow-hidden border border-[#cbd5e1] flex items-center justify-center">
+                          {blog.cover_image ? (
+                            <img
+                              src={blog.cover_image}
+                              alt={blog.title}
+                              className="w-full h-full object-cover"
+                            />
+                          ) : (
+                            <span className="material-symbols-outlined text-sm text-slate-400">
+                              article
+                            </span>
+                          )}
                         </div>
                       </td>
                       <td className="px-6 py-4">

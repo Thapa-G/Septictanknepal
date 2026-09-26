@@ -16,12 +16,18 @@ export default function ServiceCard({ service, isWide = false }: ServiceCardProp
         href={`/services/${service.slug}`}
         className="bg-white border border-[#cbd5e1] rounded-2xl overflow-hidden flex flex-col md:flex-row service-card transition-all duration-300 md:col-span-2 lg:col-span-2 shadow-sm hover:shadow-md group block cursor-pointer"
       >
-        <div className="h-48 md:h-auto md:w-2/5 relative bg-[#e2e8f0] overflow-hidden">
-          <img
-            src={service.cover_image || 'https://lh3.googleusercontent.com/aida-public/AB6AXuBI7cIdzb6CdTFXDBA04BFdeZZrpEzXyFAHxlQ66oFQUkEPT4dsseY5yQ7K9JsYv5X7rEXW52M-3cAOaovmqZdl7ZBO6oo51siovdphhhfQ2-NKzpiDJdxIoMX36lswBrpSsGL2Ey_HDHxeSqwthqQcg42sRu2KZyb9YQrVgHOkFPmOiS9eSG3HkpTcFbl4ur7qPZu1CFByM-oLDC6cdXUi9yhmZFHfseVtFezqSX2sFke4kC3Oy5Si'}
-            alt={altText}
-            className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
-          />
+        <div className="h-48 md:h-auto md:w-2/5 relative bg-[#e2e8f0] overflow-hidden flex items-center justify-center">
+          {service.cover_image ? (
+            <img
+              src={service.cover_image}
+              alt={altText}
+              className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+            />
+          ) : (
+            <span className="material-symbols-outlined text-4xl text-slate-400">
+              {service.icon || 'waves'}
+            </span>
+          )}
         </div>
         <div className="p-6 flex-grow flex flex-col md:w-3/5 justify-between">
           <div>
@@ -55,12 +61,18 @@ export default function ServiceCard({ service, isWide = false }: ServiceCardProp
       href={`/services/${service.slug}`}
       className="bg-white border border-[#cbd5e1] rounded-2xl overflow-hidden flex flex-col service-card transition-all duration-300 shadow-sm hover:shadow-md group block cursor-pointer h-full"
     >
-      <div className="h-48 w-full relative bg-[#e2e8f0] overflow-hidden">
-        <img
-          src={service.cover_image || 'https://lh3.googleusercontent.com/aida-public/AB6AXuAWjluVn_75F2aC8zdzdrUADedD105FKqFeURRJoD13s-xwUsMKrOANHC0GJsXq3_I0uUTzt5TZ54X52_OFZGtmu-d5ir6GNkvSvWvWbW_5zJTVFEDK1MPlmauBcEYXgBaZOf2TtBzrFp6rad5hZXBqnyMNg-A3cCwEezyrnmVQyTg3uHWu5N8LGU9ShdZ25rC5veJnOMgUGy11z5zfSXjB8rBlKS_g137C3Ua7x-QJc_Qs_7TqzqDw'}
-          alt={altText}
-          className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
-        />
+      <div className="h-48 w-full relative bg-[#e2e8f0] overflow-hidden flex items-center justify-center">
+        {service.cover_image ? (
+          <img
+            src={service.cover_image}
+            alt={altText}
+            className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+          />
+        ) : (
+          <span className="material-symbols-outlined text-4xl text-slate-400">
+            {service.icon || 'water_damage'}
+          </span>
+        )}
       </div>
       <div className="p-6 flex-grow flex flex-col justify-between">
         <div>

@@ -162,13 +162,15 @@ export default function ServiceDetailPage({
             </header>
 
             {/* Featured Hero Media */}
-            <div className="w-full rounded-2xl overflow-hidden mb-8 border border-[#cbd5e1] shadow-sm bg-[#e2e8f0]">
-              <img
-                src={service.cover_image || 'https://lh3.googleusercontent.com/aida-public/AB6AXuBzMBvUxg6xMTV-tk2owptmrZgWlZgd_UqeasvpAFLTnRrgbHCkwTI7-R1eKL-FhHW3jfx4OO6yTK6R1i0G46ucDICOuiGbvygnHk5dL6yQqh7dBF4vRsvzqZ6O0dFhPq6tsPlYyn6qOwTkEvFsmUaKnaJD8DBxuApq1aNFEWeHuF2OtvOgWJ_TdV3y5mSgl7GWp99Y1ENQ-0-DwUFUw6gJVJYRnGHH8Fe6e2ykxYC2xmgSJX-tV7Gz'}
-                alt={service.cover_image_alt || service.title}
-                className="w-full h-auto object-cover aspect-video"
-              />
-            </div>
+            {service.cover_image && (
+              <div className="w-full rounded-2xl overflow-hidden mb-8 border border-[#cbd5e1] shadow-sm bg-[#e2e8f0]">
+                <img
+                  src={service.cover_image}
+                  alt={service.cover_image_alt || service.title}
+                  className="w-full h-auto object-cover aspect-video"
+                />
+              </div>
+            )}
 
             {/* Full Formatted Description / Prose */}
             <div className="mb-8">
@@ -191,11 +193,13 @@ export default function ServiceDetailPage({
                     onClick={() => setIsPlayingVideo(true)}
                     className="relative w-full h-full flex items-center justify-center group cursor-pointer"
                   >
-                    <img
-                      src={service.cover_image || 'https://lh3.googleusercontent.com/aida-public/AB6AXuBzMBvUxg6xMTV-tk2owptmrZgWlZgd_UqeasvpAFLTnRrgbHCkwTI7-R1eKL-FhHW3jfx4OO6yTK6R1i0G46ucDICOuiGbvygnHk5dL6yQqh7dBF4vRsvzqZ6O0dFhPq6tsPlYyn6qOwTkEvFsmUaKnaJD8DBxuApq1aNFEWeHuF2OtvOgWJ_TdV3y5mSgl7GWp99Y1ENQ-0-DwUFUw6gJVJYRnGHH8Fe6e2ykxYC2xmgSJX-tV7Gz'}
-                      alt="Video thumbnail"
-                      className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-multiply"
-                    />
+                    {service.cover_image && (
+                      <img
+                        src={service.cover_image}
+                        alt="Video thumbnail"
+                        className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-multiply"
+                      />
+                    )}
                     <div className="z-10 w-20 h-14 bg-[#1d4ed8] rounded-2xl flex items-center justify-center shadow-2xl transition-transform group-hover:scale-110">
                       <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[18px] border-l-white border-b-[10px] border-b-transparent ml-1" />
                     </div>

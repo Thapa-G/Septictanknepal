@@ -171,13 +171,15 @@ export default function BlogDetailPage({
             </header>
 
             {/* Featured Image */}
-            <div className="w-full rounded-2xl overflow-hidden mb-8 border border-[#cbd5e1] shadow-sm bg-[#e2e8f0]">
-              <img
-                src={blog.cover_image || 'https://lh3.googleusercontent.com/aida-public/AB6AXuB7uCIPYHm8EJZvPor5srfBzNextPUXCaos7r2pCTm3SiAdwvzp1ubpEjJyZ2XK6brPp9fvNP2A9-T1lVbucFsU7SYSPtm76PCDrspXJz-gm-dw6qpQ5h9DSlRVPXF3B8SxvUdUuwc4X4tp6nopGhp1Jarw5T6vsrBgA__6JOUQ_FfER5fN_MScHsxotURzXukGl0TRlWhmnDYtm4S6LmTIzBPW21jjlESHN80Oy0DGU1rwVcwo8Lhx'}
-                alt={blog.cover_image_alt || blog.title}
-                className="w-full h-auto object-cover aspect-video"
-              />
-            </div>
+            {blog.cover_image && (
+              <div className="w-full rounded-2xl overflow-hidden mb-8 border border-[#cbd5e1] shadow-sm bg-[#e2e8f0]">
+                <img
+                  src={blog.cover_image}
+                  alt={blog.cover_image_alt || blog.title}
+                  className="w-full h-auto object-cover aspect-video"
+                />
+              </div>
+            )}
 
             {/* Article Formatted Content */}
             <div className="mb-12">
