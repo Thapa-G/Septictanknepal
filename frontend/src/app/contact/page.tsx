@@ -12,7 +12,6 @@ import LocalBusinessSchema from '@/components/seo/LocalBusinessSchema';
 import { useCompany } from '@/context/CompanyContext';
 
 import { DEFAULT_COMPANY } from '@/config/company';
-import CanonicalTag from '@/components/seo/CanonicalTag';
 
 export default function ContactPage() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -32,7 +31,7 @@ export default function ContactPage() {
         name="description"
         content="Contact Septic-Tank Nepal for 24/7 emergency septic tank pumping, drain cleaning, sewage line unclogging, and plumbing services across Kathmandu Valley."
       />
-      <CanonicalTag url={`${siteUrl}/contact`} />
+      <link rel="canonical" href={`${siteUrl}/contact`} />
 
       {/* OpenGraph Tags */}
       <meta property="og:title" content="Contact Septic-Tank Nepal | 24/7 Sanitation & Plumbing Services" />

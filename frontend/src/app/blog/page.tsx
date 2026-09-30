@@ -17,7 +17,6 @@ import { blogsService } from '@/services/blogsService';
 import { categoriesService } from '@/services/categoriesService';
 import { useCompany } from '@/context/CompanyContext';
 import { DEFAULT_COMPANY } from '@/config/company';
-import CanonicalTag from '@/components/seo/CanonicalTag';
 import { Blog, Category, PaginatedResponse } from '@/types';
 
 export default function BlogListPage() {
@@ -88,7 +87,7 @@ export default function BlogListPage() {
         name="description"
         content="Read the latest guides, tips, and insights on plumbing, drainage, septic tank maintenance, drain cleaning, sewage management, water boring, and well construction in Kathmandu Valley."
       />
-      <CanonicalTag url={`${siteUrl}/blog`} />
+      <link rel="canonical" href={`${siteUrl}/blog`} />
 
       {/* OpenGraph Tags */}
       <meta property="og:title" content="Expert Plumbing, Drainage & Septic Tank Insights" />

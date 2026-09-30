@@ -15,7 +15,6 @@ import BlogDetailSchema from '@/components/seo/BlogDetailSchema';
 import { blogsService } from '@/services/blogsService';
 import { useCompany } from '@/context/CompanyContext';
 import { DEFAULT_COMPANY } from '@/config/company';
-import CanonicalTag from '@/components/seo/CanonicalTag';
 import { Blog } from '@/types';
 
 export default function BlogDetailPage({
@@ -52,13 +51,10 @@ export default function BlogDetailPage({
 
   const phone = company?.emergency_phone || DEFAULT_COMPANY.emergency_phone;
   const whatsapp = company?.whatsapp_number || DEFAULT_COMPANY.whatsapp_number;
-  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://omganeshayasarsafai.com.np').replace(/\/+$/, '');
-  const canonicalUrl = blog?.canonical_url || `${siteUrl}/blog/${slug}`;
 
   if (loading) {
     return (
       <div className="min-h-screen flex flex-col bg-[#f8fafc]">
-        <CanonicalTag url={canonicalUrl} />
         <Navbar />
         <main className="flex-grow flex items-center justify-center pt-24">
           <LoadingSpinner text="Loading article..." />
@@ -71,7 +67,6 @@ export default function BlogDetailPage({
   if (error || !blog) {
     return (
       <div className="min-h-screen flex flex-col bg-[#f8fafc]">
-        <CanonicalTag url={canonicalUrl} />
         <Navbar phone={phone} whatsapp={whatsapp} />
         <main className="flex-grow flex flex-col items-center justify-center pt-32 pb-16 px-5 text-center">
           <span className="material-symbols-outlined text-[64px] text-[#ba1a1a] mb-4">article</span>
@@ -95,7 +90,7 @@ export default function BlogDetailPage({
       <title>{blog.meta_title || `${blog.title} | Septic-Tank Nepal`}</title>
       <meta name="description" content={blog.meta_description || blog.excerpt || ''} />
       {blog.meta_keywords && <meta name="keywords" content={blog.meta_keywords} />}
-      <CanonicalTag url={canonicalUrl} />
+      <link rel="canonical" href={blog.canonical_url || `https://omganeshayasarsafai.com.np/blog/${slug}`} />
 
       {/* OpenGraph Protocol */}
       <meta property="og:title" content={blog.title} />

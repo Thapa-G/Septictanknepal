@@ -14,7 +14,6 @@ import { GalleryItem } from '@/types';
 
 import { DEFAULT_COMPANY } from '@/config/company';
 import LocalBusinessSchema from '@/components/seo/LocalBusinessSchema';
-import CanonicalTag from '@/components/seo/CanonicalTag';
 
 export default function PublicGalleryPage() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -98,8 +97,6 @@ export default function PublicGalleryPage() {
     })),
   };
 
-  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://omganeshayasarsafai.com.np').replace(/\/+$/, '');
-
   return (
     <div className="min-h-screen flex flex-col bg-[#f8fafc] text-[#0f172a] pb-18 md:pb-0">
       <title>{`Photo Gallery | ${companyName}`}</title>
@@ -107,7 +104,7 @@ export default function PublicGalleryPage() {
         name="description"
         content="View our on-site work and project photo gallery across Kathmandu Valley. Professional septic tank pumping, drain cleaning, and sewage clearance."
       />
-      <CanonicalTag url={`${siteUrl}/gallery`} />
+      <link rel="canonical" href="https://omganeshayasarsafai.com.np/gallery" />
 
       {/* OpenGraph Protocol */}
       <meta property="og:type" content="website" />
