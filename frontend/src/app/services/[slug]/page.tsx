@@ -16,6 +16,7 @@ import ServiceDetailSchema from '@/components/seo/ServiceDetailSchema';
 import { servicesService } from '@/services/servicesService';
 import { useCompany } from '@/context/CompanyContext';
 import { DEFAULT_COMPANY } from '@/config/company';
+import CanonicalTag from '@/components/seo/CanonicalTag';
 import { Service } from '@/types';
 
 export default function ServiceDetailPage({
@@ -51,10 +52,13 @@ export default function ServiceDetailPage({
 
   const phone = company?.emergency_phone || DEFAULT_COMPANY.emergency_phone;
   const whatsapp = company?.whatsapp_number || DEFAULT_COMPANY.whatsapp_number;
+  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://omganeshayasarsafai.com.np').replace(/\/+$/, '');
+  const canonicalUrl = service?.canonical_url || `${siteUrl}/services/${slug}`;
 
   if (loading) {
     return (
       <div className="min-h-screen flex flex-col bg-[#f8fafc]">
+        <CanonicalTag url={canonicalUrl} />
         <Navbar />
         <main className="flex-grow flex items-center justify-center pt-24">
           <LoadingSpinner text="Loading service details..." />
@@ -67,6 +71,7 @@ export default function ServiceDetailPage({
   if (error || !service) {
     return (
       <div className="min-h-screen flex flex-col bg-[#f8fafc]">
+        <CanonicalTag url={canonicalUrl} />
         <Navbar phone={phone} whatsapp={whatsapp} />
         <main className="flex-grow flex flex-col items-center justify-center pt-32 pb-16 px-5 text-center">
           <span className="material-symbols-outlined text-[64px] text-[#ba1a1a] mb-4">error</span>
@@ -99,7 +104,7 @@ export default function ServiceDetailPage({
       <title>{service.heading || service.title}</title>
       <meta name="description" content={service.meta_description || service.short_description || ''} />
       {service.meta_keywords && <meta name="keywords" content={service.meta_keywords} />}
-      <link rel="canonical" href={service.canonical_url || `https://omganeshayasarsafai.com.np/services/${slug}`} />
+      <CanonicalTag url={canonicalUrl} />
       
       {/* OpenGraph Protocol */}
       <meta property="og:title" content={service.heading || service.title} />

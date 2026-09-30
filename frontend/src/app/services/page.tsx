@@ -16,6 +16,7 @@ import { useCompany } from '@/context/CompanyContext';
 import { Service } from '@/types';
 
 import { DEFAULT_COMPANY } from '@/config/company';
+import CanonicalTag from '@/components/seo/CanonicalTag';
 
 export default function ServicesPage() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -53,7 +54,7 @@ export default function ServicesPage() {
         name="description"
         content="Explore our complete range of expert drainage, septic tank, plumbing and boring 24/7 services across Kathmandu Valley, including Kathmandu, Bhaktapur, Lalitpur and Kirtipur."
       />
-      <link rel="canonical" href={`${siteUrl}/services`} />
+      <CanonicalTag url={`${siteUrl}/services`} />
 
       {/* OpenGraph Tags */}
       <meta property="og:title" content="24/7 Professional Drainage, Septic Tank & Plumbing Services in Kathmandu Valley" />

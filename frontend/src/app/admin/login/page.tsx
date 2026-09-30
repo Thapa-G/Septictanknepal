@@ -27,6 +27,8 @@ export default function AdminLoginPage() {
     }
   };
 
+  const isLocked = Boolean(error && error.toLowerCase().includes('locked'));
+
   return (
     <div className="min-h-screen bg-[#f8fafc] flex flex-col justify-center items-center px-4 py-12">
       <meta name="robots" content="noindex, nofollow" />
@@ -51,9 +53,31 @@ export default function AdminLoginPage() {
           </h2>
 
           {error && (
-            <div className="mb-6 p-3.5 bg-[#ffdad6] border border-[#ba1a1a] text-[#93000a] rounded-xl text-[14px] flex items-center gap-2">
-              <span className="material-symbols-outlined text-[18px]">error</span>
-              <span>{error}</span>
+            <div
+              className={`mb-6 p-4 rounded-xl text-[14px] flex items-start gap-3 border leading-snug ${
+                isLocked
+                  ? 'bg-[#fef2f2] border-[#ef4444] text-[#991b1b]'
+                  : error.toLowerCase().includes('remaining')
+                  ? 'bg-[#fffbeb] border-[#f59e0b] text-[#92400e]'
+                  : 'bg-[#ffdad6] border-[#ba1a1a] text-[#93000a]'
+              }`}
+            >
+              <span
+                className="material-symbols-outlined text-[20px] shrink-0 mt-0.5"
+                style={{ fontVariationSettings: "'FILL' 1" }}
+              >
+                {isLocked ? 'lock_clock' : error.toLowerCase().includes('remaining') ? 'warning' : 'error'}
+              </span>
+              <div>
+                <span className="font-bold block mb-0.5">
+                  {isLocked
+                    ? 'Security Lockout Active'
+                    : error.toLowerCase().includes('remaining')
+                    ? 'Invalid Credentials'
+                    : 'Authentication Error'}
+                </span>
+                <span>{error}</span>
+              </div>
             </div>
           )}
 
@@ -68,7 +92,8 @@ export default function AdminLoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full bg-[#f8fafc] border border-[#cbd5e1] rounded-xl p-3 text-[14px] text-[#0f172a] form-input"
+                disabled={loading || isLocked}
+                className="w-full bg-[#f8fafc] border border-[#cbd5e1] rounded-xl p-3 text-[14px] text-[#0f172a] form-input disabled:opacity-60 disabled:cursor-not-allowed"
                 placeholder="Enter email address"
                 autoComplete="email"
               />
@@ -84,7 +109,8 @@ export default function AdminLoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full bg-[#f8fafc] border border-[#cbd5e1] rounded-xl p-3 text-[14px] text-[#0f172a] form-input"
+                disabled={loading || isLocked}
+                className="w-full bg-[#f8fafc] border border-[#cbd5e1] rounded-xl p-3 text-[14px] text-[#0f172a] form-input disabled:opacity-60 disabled:cursor-not-allowed"
                 placeholder="Enter password"
                 autoComplete="current-password"
               />
@@ -92,11 +118,20 @@ export default function AdminLoginPage() {
 
             <button
               type="submit"
-              disabled={loading}
-              className="w-full bg-[#1d4ed8] hover:bg-[#1e40af] text-white h-12 rounded-xl font-bold text-[15px] transition-colors flex items-center justify-center gap-2 shadow-sm disabled:opacity-50 mt-2"
+              disabled={loading || isLocked}
+              className={`w-full h-12 rounded-xl font-bold text-[15px] transition-colors flex items-center justify-center gap-2 shadow-sm mt-2 ${
+                isLocked
+                  ? 'bg-slate-400 text-white cursor-not-allowed'
+                  : 'bg-[#1d4ed8] hover:bg-[#1e40af] text-white disabled:opacity-50'
+              }`}
             >
               {loading ? (
                 <span>Signing In...</span>
+              ) : isLocked ? (
+                <>
+                  <span className="material-symbols-outlined text-[20px]">lock</span>
+                  <span>Account Locked (3 Hours)</span>
+                </>
               ) : (
                 <>
                   <span className="material-symbols-outlined text-[20px]">login</span>
