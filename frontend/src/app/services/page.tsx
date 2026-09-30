@@ -11,6 +11,7 @@ import ServiceCard from '@/components/cards/ServiceCard';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import LocalBusinessSchema from '@/components/seo/LocalBusinessSchema';
 import ServicesCatalogSchema from '@/components/seo/ServicesCatalogSchema';
+import CanonicalTag from '@/components/seo/CanonicalTag';
 import { servicesService } from '@/services/servicesService';
 import { useCompany } from '@/context/CompanyContext';
 import { Service } from '@/types';
@@ -53,7 +54,7 @@ export default function ServicesPage() {
         name="description"
         content="Explore our complete range of expert drainage, septic tank, plumbing and boring 24/7 services across Kathmandu Valley, including Kathmandu, Bhaktapur, Lalitpur and Kirtipur."
       />
-      <link rel="canonical" href={`${siteUrl}/services`} />
+      <CanonicalTag url={`${siteUrl}/services`} />
 
       {/* OpenGraph Tags */}
       <meta property="og:title" content="24/7 Professional Drainage, Septic Tank & Plumbing Services in Kathmandu Valley" />

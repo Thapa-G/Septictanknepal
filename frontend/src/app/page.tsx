@@ -16,6 +16,7 @@ import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import ServiceCard from '@/components/cards/ServiceCard';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import LocalBusinessSchema from '@/components/seo/LocalBusinessSchema';
+import CanonicalTag from '@/components/seo/CanonicalTag';
 import { servicesService } from '@/services/servicesService';
 import { companyService } from '@/services/companyService';
 import { useCompany } from '@/context/CompanyContext';
@@ -88,7 +89,7 @@ export default function HomePage() {
         name="description"
         content="Fast, reliable septic tank pumping, drain cleaning, sewage line unclogging, and 24/7 plumbing emergency service across Kathmandu, Lalitpur, and Bhaktapur."
       />
-      <link rel="canonical" href={siteUrl} />
+      <CanonicalTag url={siteUrl} />
       
       {/* OpenGraph Tags */}
       <meta property="og:title" content="Septic-Tank Nepal | 24/7 Drainage, Septic Tank & Plumbing Solutions" />

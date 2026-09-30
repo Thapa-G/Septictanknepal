@@ -13,6 +13,7 @@ import Pagination from '@/components/ui/Pagination';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import LocalBusinessSchema from '@/components/seo/LocalBusinessSchema';
 import BlogCatalogSchema from '@/components/seo/BlogCatalogSchema';
+import CanonicalTag from '@/components/seo/CanonicalTag';
 import { blogsService } from '@/services/blogsService';
 import { categoriesService } from '@/services/categoriesService';
 import { useCompany } from '@/context/CompanyContext';
@@ -87,7 +88,7 @@ export default function BlogListPage() {
         name="description"
         content="Read the latest guides, tips, and insights on plumbing, drainage, septic tank maintenance, drain cleaning, sewage management, water boring, and well construction in Kathmandu Valley."
       />
-      <link rel="canonical" href={`${siteUrl}/blog`} />
+      <CanonicalTag url={`${siteUrl}/blog`} />
 
       {/* OpenGraph Tags */}
       <meta property="og:title" content="Expert Plumbing, Drainage & Septic Tank Insights" />

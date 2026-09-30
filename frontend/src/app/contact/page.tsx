@@ -9,6 +9,7 @@ import Footer from '@/components/layout/Footer';
 import FloatingButtons from '@/components/layout/FloatingButtons';
 import ContactForm from '@/components/forms/ContactForm';
 import LocalBusinessSchema from '@/components/seo/LocalBusinessSchema';
+import CanonicalTag from '@/components/seo/CanonicalTag';
 import { useCompany } from '@/context/CompanyContext';
 
 import { DEFAULT_COMPANY } from '@/config/company';
@@ -31,7 +32,7 @@ export default function ContactPage() {
         name="description"
         content="Contact Septic-Tank Nepal for 24/7 emergency septic tank pumping, drain cleaning, sewage line unclogging, and plumbing services across Kathmandu Valley."
       />
-      <link rel="canonical" href={`${siteUrl}/contact`} />
+      <CanonicalTag url={`${siteUrl}/contact`} />
 
       {/* OpenGraph Tags */}
       <meta property="og:title" content="Contact Septic-Tank Nepal | 24/7 Sanitation & Plumbing Services" />

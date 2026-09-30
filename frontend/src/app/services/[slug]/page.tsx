@@ -13,6 +13,7 @@ import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import RichTextRenderer from '@/components/ui/RichTextRenderer';
 import LocalBusinessSchema from '@/components/seo/LocalBusinessSchema';
 import ServiceDetailSchema from '@/components/seo/ServiceDetailSchema';
+import CanonicalTag from '@/components/seo/CanonicalTag';
 import { servicesService } from '@/services/servicesService';
 import { useCompany } from '@/context/CompanyContext';
 import { DEFAULT_COMPANY } from '@/config/company';
@@ -99,7 +100,7 @@ export default function ServiceDetailPage({
       <title>{service.heading || service.title}</title>
       <meta name="description" content={service.meta_description || service.short_description || ''} />
       {service.meta_keywords && <meta name="keywords" content={service.meta_keywords} />}
-      <link rel="canonical" href={service.canonical_url || `https://omganeshayasarsafai.com.np/services/${slug}`} />
+      <CanonicalTag url={service.canonical_url || `https://omganeshayasarsafai.com.np/services/${slug}`} />
       
       {/* OpenGraph Protocol */}
       <meta property="og:title" content={service.heading || service.title} />

@@ -12,6 +12,7 @@ import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import RichTextRenderer from '@/components/ui/RichTextRenderer';
 import LocalBusinessSchema from '@/components/seo/LocalBusinessSchema';
 import BlogDetailSchema from '@/components/seo/BlogDetailSchema';
+import CanonicalTag from '@/components/seo/CanonicalTag';
 import { blogsService } from '@/services/blogsService';
 import { useCompany } from '@/context/CompanyContext';
 import { DEFAULT_COMPANY } from '@/config/company';
@@ -90,7 +91,7 @@ export default function BlogDetailPage({
       <title>{blog.meta_title || `${blog.title} | Septic-Tank Nepal`}</title>
       <meta name="description" content={blog.meta_description || blog.excerpt || ''} />
       {blog.meta_keywords && <meta name="keywords" content={blog.meta_keywords} />}
-      <link rel="canonical" href={blog.canonical_url || `https://omganeshayasarsafai.com.np/blog/${slug}`} />
+      <CanonicalTag url={blog.canonical_url || `https://omganeshayasarsafai.com.np/blog/${slug}`} />
 
       {/* OpenGraph Protocol */}
       <meta property="og:title" content={blog.title} />
