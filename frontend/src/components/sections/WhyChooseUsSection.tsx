@@ -16,7 +16,7 @@ export default function WhyChooseUsSection() {
           {/* Image Column */}
           <div className="relative h-[350px] sm:h-[420px] lg:h-[480px] rounded-2xl overflow-hidden shadow-lg border border-[#cbd5e1]">
             <img
-              src="/images/kathmandudrainagecleaning.jpeg"
+              src="/images/kathmandudrainagecleaning.jpg"
               alt="Professional drainage technicians working on drain cleaning in Kathmandu"
               className="w-full h-full object-cover"
             />

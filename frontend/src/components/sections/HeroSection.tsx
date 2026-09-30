@@ -76,7 +76,7 @@ export default function HeroSection({
         {/* Hero Visual Column */}
         <div className="relative h-[380px] sm:h-[450px] lg:h-[550px] rounded-2xl overflow-hidden shadow-xl border border-[#cbd5e1] group">
           <img
-            src="/images/cleaingservicehomepage.jpeg"
+            src="/images/cleaingservicehomepage.jpg"
             alt="Professional drainage technician in Kathmandu"
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
           />
@@ -90,7 +90,7 @@ export default function HeroSection({
                 </span>
               </div>
               <div>
-                <h3 className="text-[16px] font-bold text-[#0f172a]">Emergency Service</h3>
+                <h2 className="text-[16px] font-bold text-[#0f172a]">Emergency Service</h2>
                 <p className="text-[12px] text-[#475569]">Available 24/7 in Kathmandu Valley</p>
               </div>
             </div>

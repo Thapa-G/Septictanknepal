@@ -39,14 +39,14 @@ export default function ContactPage() {
       <meta property="og:description" content="Reach our rapid response team 24/7 for septic tank pumping, drain cleaning, and plumbing emergencies across Kathmandu Valley." />
       <meta property="og:url" content={`${siteUrl}/contact`} />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content={`${siteUrl}/images/cleaingservicehomepage.jpeg`} />
+      <meta property="og:image" content={`${siteUrl}/images/cleaingservicehomepage.jpg`} />
       <meta property="og:site_name" content="Septic-Tank Nepal" />
 
       {/* Twitter Cards */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Contact Septic-Tank Nepal" />
       <meta name="twitter:description" content="24/7 emergency drainage, septic tank cleaning, and plumbing booking in Kathmandu Valley." />
-      <meta name="twitter:image" content={`${siteUrl}/images/cleaingservicehomepage.jpeg`} />
+      <meta name="twitter:image" content={`${siteUrl}/images/cleaingservicehomepage.jpg`} />
 
       <LocalBusinessSchema company={company} />
 

@@ -84,27 +84,27 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#f8fafc] text-[#0f172a] overflow-x-hidden pb-18 md:pb-0">
-      <title>Septic-Tank Nepal | Professional Drainage, Septic Tank & Plumbing Services in Kathmandu Valley</title>
+      <title>Professional Drainage Cleaning Service in Kathmandu Valley</title>
       <meta
         name="description"
-        content="Fast, reliable septic tank pumping, drain cleaning, sewage line unclogging, and 24/7 plumbing emergency service across Kathmandu, Lalitpur, and Bhaktapur."
+        content="Septic Tank Nepal offers 24/7 septic pumping, drain cleaning & emergency plumbing across Kathmandu, Lalitpur & Bhaktapur."
       />
       <CanonicalTag url={siteUrl} />
-      
+
       {/* OpenGraph Tags */}
-      <meta property="og:title" content="Septic-Tank Nepal | 24/7 Drainage, Septic Tank & Plumbing Solutions" />
+      <meta property="og:title" content="24/7 Drainage, Septic Tank & Plumbing Solutions | Septic-Tank Nepal" />
       <meta property="og:description" content="Fast, reliable septic tank pumping, drain cleaning, sewage line unclogging, and 24/7 plumbing emergency service across Kathmandu, Lalitpur, and Bhaktapur." />
       <meta property="og:url" content={siteUrl} />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content={`${siteUrl}/images/cleaingservicehomepage.jpeg`} />
+      <meta property="og:image" content={`${siteUrl}/images/cleaingservicehomepage.jpg`} />
       <meta property="og:image:alt" content="Septic-Tank Nepal Professional Services" />
       <meta property="og:site_name" content="Septic-Tank Nepal" />
 
       {/* Twitter Cards */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Septic-Tank Nepal | 24/7 Drainage, Septic Tank & Plumbing Solutions" />
+      <meta name="twitter:title" content="24/7 Drainage, Septic Tank & Plumbing Solutions | Septic-Tank Nepal" />
       <meta name="twitter:description" content="Fast, reliable septic tank pumping, drain cleaning, sewage line unclogging, and 24/7 emergency service in Kathmandu Valley." />
-      <meta name="twitter:image" content={`${siteUrl}/images/cleaingservicehomepage.jpeg`} />
+      <meta name="twitter:image" content={`${siteUrl}/images/cleaingservicehomepage.jpg`} />
 
       {/* Structured Data */}
       <script

@@ -49,27 +49,27 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#f8fafc] text-[#0f172a] pb-18 md:pb-0">
-      <title>24/7 Professional Drainage, Septic Tank, Plumbing & Boring Services in Kathmandu Valley</title>
+      <title>24/7 Septic Tank, Drainage & Plumbing Services in Kathmandu</title>
       <meta
         name="description"
-        content="Explore our complete range of expert drainage, septic tank, plumbing and boring 24/7 services across Kathmandu Valley, including Kathmandu, Bhaktapur, Lalitpur and Kirtipur."
+        content="Explore expert 24/7 drainage, septic, plumbing & boring services across Kathmandu, Bhaktapur, Lalitpur & Kirtipur."
       />
       <CanonicalTag url={`${siteUrl}/services`} />
 
       {/* OpenGraph Tags */}
-      <meta property="og:title" content="24/7 Professional Drainage, Septic Tank & Plumbing Services in Kathmandu Valley" />
-      <meta property="og:description" content="Explore our complete range of expert drainage, septic tank, plumbing and boring 24/7 services across Kathmandu, Bhaktapur, Lalitpur and Kirtipur." />
+      <meta property="og:title" content="24/7 Septic Tank, Drainage & Plumbing Services in Kathmandu" />
+      <meta property="og:description" content="Explore expert 24/7 drainage, septic, plumbing & boring services across Kathmandu, Bhaktapur, Lalitpur & Kirtipur." />
       <meta property="og:url" content={`${siteUrl}/services`} />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content={`${siteUrl}/images/cleaingservicehomepage.jpeg`} />
+      <meta property="og:image" content={`${siteUrl}/images/cleaingservicehomepage.jpg`} />
       <meta property="og:image:alt" content="Our Professional Drainage & Plumbing Services" />
       <meta property="og:site_name" content="Septic-Tank Nepal" />
 
       {/* Twitter Cards */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Professional Drainage, Septic Tank & Plumbing Services in Kathmandu Valley" />
-      <meta name="twitter:description" content="Explore our complete range of expert drainage, septic tank, plumbing and boring services across Kathmandu Valley." />
-      <meta name="twitter:image" content={`${siteUrl}/images/cleaingservicehomepage.jpeg`} />
+      <meta name="twitter:title" content="24/7 Septic Tank, Drainage & Plumbing Services in Kathmandu" />
+      <meta name="twitter:description" content="Explore expert 24/7 drainage, septic, plumbing & boring services across Kathmandu, Bhaktapur, Lalitpur & Kirtipur." />
+      <meta name="twitter:image" content={`${siteUrl}/images/cleaingservicehomepage.jpg`} />
 
       <LocalBusinessSchema company={company} />
       <ServicesCatalogSchema services={services} company={company} />

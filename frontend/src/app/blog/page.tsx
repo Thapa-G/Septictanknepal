@@ -83,26 +83,26 @@ export default function BlogListPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#f8fafc] text-[#0f172a] pb-18 md:pb-0">
-      <title>Expert Plumbing, Drainage & Septic Tank Insights | Septic-Tank Nepal</title>
+      <title>Expert Plumbing & Septic Insights | Septic-Tank Nepal</title>
       <meta
         name="description"
-        content="Read the latest guides, tips, and insights on plumbing, drainage, septic tank maintenance, drain cleaning, sewage management, water boring, and well construction in Kathmandu Valley."
+        content="Read expert tips on plumbing, drainage, septic tank care, sewage management, water boring & well construction in Kathmandu Valley."
       />
       <CanonicalTag url={`${siteUrl}/blog`} />
 
       {/* OpenGraph Tags */}
-      <meta property="og:title" content="Expert Plumbing, Drainage & Septic Tank Insights" />
-      <meta property="og:description" content="Guides, tips, and insights on plumbing, drainage, septic tank maintenance, and sewage management in Kathmandu Valley." />
+      <meta property="og:title" content="Expert Plumbing & Septic Insights | Septic-Tank Nepal" />
+      <meta property="og:description" content="Read expert tips on plumbing, drainage, septic tank care, sewage management, water boring & well construction in Kathmandu Valley." />
       <meta property="og:url" content={`${siteUrl}/blog`} />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content={`${siteUrl}/images/cleaingservicehomepage.jpeg`} />
+      <meta property="og:image" content={`${siteUrl}/images/cleaingservicehomepage.jpg`} />
       <meta property="og:site_name" content="Septic-Tank Nepal" />
 
       {/* Twitter Cards */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Expert Plumbing, Drainage & Septic Tank Insights" />
-      <meta name="twitter:description" content="Read our latest guides and tips on drainage and plumbing solutions across Kathmandu Valley." />
-      <meta name="twitter:image" content={`${siteUrl}/images/cleaingservicehomepage.jpeg`} />
+      <meta name="twitter:title" content="Expert Plumbing & Septic Insights | Septic-Tank Nepal" />
+      <meta name="twitter:description" content="Read expert tips on plumbing, drainage, septic tank care, sewage management, water boring & well construction in Kathmandu Valley." />
+      <meta name="twitter:image" content={`${siteUrl}/images/cleaingservicehomepage.jpg`} />
 
       <LocalBusinessSchema company={company} />
       <BlogCatalogSchema blogs={blogsList} company={company} />
