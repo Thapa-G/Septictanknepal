@@ -12,11 +12,39 @@ class ContactController extends Controller
     public function store(Request $request): JsonResponse
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:50',
-            'location' => 'nullable|string|max:255',
-            'service_needed' => 'nullable|string|max:100',
-            'message' => 'nullable|string',
+            'name' => [
+                'required',
+                'string',
+                'max:255',
+                'regex:/^[\p{L}0-9,\s]+$/u',
+            ],
+            'phone' => [
+                'required',
+                'string',
+                'max:50',
+                'regex:/^[0-9,+\s\-]+$/',
+            ],
+            'location' => [
+                'nullable',
+                'string',
+                'max:255',
+                'regex:/^[\p{L}0-9,\s]+$/u',
+            ],
+            'service_needed' => [
+                'nullable',
+                'string',
+                'max:100',
+            ],
+            'message' => [
+                'nullable',
+                'string',
+                'regex:/^[\p{L}0-9,\s]+$/u',
+            ],
+        ], [
+            'name.regex' => 'Name can only contain letters, numbers, and commas.',
+            'phone.regex' => 'Phone can only contain numbers, commas, and spaces.',
+            'location.regex' => 'Location can only contain letters, numbers, and commas.',
+            'message.regex' => 'Message can only contain letters, numbers, and commas.',
         ]);
 
         $message = ContactMessage::create($validated);

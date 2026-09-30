@@ -3,6 +3,11 @@
 import React, { useState } from 'react';
 import { contactService } from '@/services/contactService';
 
+// Validation Pattern: Only letters (Unicode support), numbers, commas, and whitespace
+const ALLOWED_TEXT_REGEX = /^[\p{L}0-9,\s]+$/u;
+// Validation Pattern for Phone: numbers, commas, whitespace, and optional leading + or -
+const PHONE_REGEX = /^[0-9,+\s\-]+$/;
+
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
@@ -12,22 +17,82 @@ export default function ContactForm() {
     message: '',
   });
 
+  const [fieldErrors, setFieldErrors] = useState<{
+    name?: string;
+    phone?: string;
+    location?: string;
+    message?: string;
+  }>({});
+
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
+  const validateField = (fieldName: string, value: string): string | undefined => {
+    if (!value.trim()) return undefined;
+
+    if (fieldName === 'phone') {
+      if (!PHONE_REGEX.test(value)) {
+        return 'Phone can only contain numbers, commas, and spaces.';
+      }
+    } else if (fieldName === 'name' || fieldName === 'location' || fieldName === 'message') {
+      if (!ALLOWED_TEXT_REGEX.test(value)) {
+        return 'Only letters, commas and numbers are allowed.';
+      }
+    }
+    return undefined;
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      [name]: value,
+    }));
+
+    // Real-time error feedback
+    const err = validateField(name, value);
+    setFieldErrors((prev) => ({
+      ...prev,
+      [name]: err,
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
     setSuccessMessage(null);
     setErrorMessage(null);
+
+    // Validate all fields
+    const errors: { name?: string; phone?: string; location?: string; message?: string } = {};
+
+    if (!formData.name.trim()) {
+      errors.name = 'Name is required.';
+    } else if (!ALLOWED_TEXT_REGEX.test(formData.name)) {
+      errors.name = 'Only letters, commas and numbers are allowed.';
+    }
+
+    if (!formData.phone.trim()) {
+      errors.phone = 'Phone number is required.';
+    } else if (!PHONE_REGEX.test(formData.phone)) {
+      errors.phone = 'Phone can only contain numbers, commas, and spaces.';
+    }
+
+    if (formData.location && !ALLOWED_TEXT_REGEX.test(formData.location)) {
+      errors.location = 'Only letters, commas and numbers are allowed.';
+    }
+
+    if (formData.message && !ALLOWED_TEXT_REGEX.test(formData.message)) {
+      errors.message = 'Only letters, commas and numbers are allowed.';
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
+      setErrorMessage('Please fix the errors below. Only letters, commas and numbers are allowed.');
+      return;
+    }
+
+    setLoading(true);
 
     try {
       const res = await contactService.submit(formData);
@@ -39,6 +104,7 @@ export default function ContactForm() {
         service_needed: '',
         message: '',
       });
+      setFieldErrors({});
     } catch (err: unknown) {
       setErrorMessage(err instanceof Error ? err.message : 'An error occurred while submitting your request.');
     } finally {
@@ -73,7 +139,7 @@ export default function ContactForm() {
               Name <span className="text-[#ba1a1a]">*</span>
             </label>
             <input
-              className="w-full bg-[#f8fafc] border border-[#cbd5e1] rounded-xl p-3 text-[15px] text-[#0f172a] form-input"
+              className={`w-full bg-[#f8fafc] border ${fieldErrors.name ? 'border-[#ba1a1a] ring-1 ring-[#ba1a1a]' : 'border-[#cbd5e1]'} rounded-xl p-3 text-[15px] text-[#0f172a] form-input transition-colors`}
               id="name"
               name="name"
               value={formData.name}
@@ -82,6 +148,9 @@ export default function ContactForm() {
               required
               type="text"
             />
+            {fieldErrors.name && (
+              <p className="text-[12px] text-[#ba1a1a] mt-1 font-medium">{fieldErrors.name}</p>
+            )}
           </div>
 
           <div>
@@ -89,7 +158,7 @@ export default function ContactForm() {
               Phone Number <span className="text-[#ba1a1a]">*</span>
             </label>
             <input
-              className="w-full bg-[#f8fafc] border border-[#cbd5e1] rounded-xl p-3 text-[15px] text-[#0f172a] form-input"
+              className={`w-full bg-[#f8fafc] border ${fieldErrors.phone ? 'border-[#ba1a1a] ring-1 ring-[#ba1a1a]' : 'border-[#cbd5e1]'} rounded-xl p-3 text-[15px] text-[#0f172a] form-input transition-colors`}
               id="phone"
               name="phone"
               value={formData.phone}
@@ -98,6 +167,9 @@ export default function ContactForm() {
               required
               type="tel"
             />
+            {fieldErrors.phone && (
+              <p className="text-[12px] text-[#ba1a1a] mt-1 font-medium">{fieldErrors.phone}</p>
+            )}
           </div>
         </div>
 
@@ -106,7 +178,7 @@ export default function ContactForm() {
             Location / Area
           </label>
           <input
-            className="w-full bg-[#f8fafc] border border-[#cbd5e1] rounded-xl p-3 text-[15px] text-[#0f172a] form-input"
+            className={`w-full bg-[#f8fafc] border ${fieldErrors.location ? 'border-[#ba1a1a] ring-1 ring-[#ba1a1a]' : 'border-[#cbd5e1]'} rounded-xl p-3 text-[15px] text-[#0f172a] form-input transition-colors`}
             id="location"
             name="location"
             value={formData.location}
@@ -114,6 +186,9 @@ export default function ContactForm() {
             placeholder="e.g., Thali, Boudha, Lalitpur, Bhaktapur"
             type="text"
           />
+          {fieldErrors.location && (
+            <p className="text-[12px] text-[#ba1a1a] mt-1 font-medium">{fieldErrors.location}</p>
+          )}
         </div>
 
         <div>
@@ -142,7 +217,7 @@ export default function ContactForm() {
             Message (Optional)
           </label>
           <textarea
-            className="w-full bg-[#f8fafc] border border-[#cbd5e1] rounded-xl p-3 text-[15px] text-[#0f172a] form-input resize-none"
+            className={`w-full bg-[#f8fafc] border ${fieldErrors.message ? 'border-[#ba1a1a] ring-1 ring-[#ba1a1a]' : 'border-[#cbd5e1]'} rounded-xl p-3 text-[15px] text-[#0f172a] form-input resize-none transition-colors`}
             id="message"
             name="message"
             value={formData.message}
@@ -150,6 +225,9 @@ export default function ContactForm() {
             placeholder="Briefly describe your plumbing or drainage issue..."
             rows={4}
           />
+          {fieldErrors.message && (
+            <p className="text-[12px] text-[#ba1a1a] mt-1 font-medium">{fieldErrors.message}</p>
+          )}
         </div>
 
         <button
